@@ -390,4 +390,39 @@ var commonmark = []Rule{
 			return nil
 		},
 	},
+	{
+		Filter: []string{"iframe"},
+		Replacement: func(content string, selec *goquery.Selection, opt *Options) *string {
+			src, exists := selec.Attr("src")
+			if !exists {
+				return String("")
+			}
+
+			if strings.HasPrefix(src, "data:text/html") {
+				parts := strings.SplitN(src, ",", 2)
+				if len(parts) != 2 {
+					return String("")
+				}
+
+				htmlContent, err := url.QueryUnescape(parts[1])
+				if err != nil {
+					return String("")
+				}
+
+				// Parse the HTML content
+				doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlContent))
+				if err != nil {
+					return String("")
+				}
+
+				// Create a new converter to handle the embedded content
+				innerConv := NewConverter("", false, opt)
+				return String(innerConv.Convert(doc.Selection))
+			}
+
+			// For non-data URIs, use the normal URL processing
+			absoluteURL := opt.GetAbsoluteURL(selec, src, opt.domain)
+			return String(fmt.Sprintf("[iframe](%s)", absoluteURL))
+		},
+	},
 }

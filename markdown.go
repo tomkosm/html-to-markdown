@@ -34,6 +34,7 @@ var inlineElements = []string{ // -> https://developer.mozilla.org/de/docs/Web/H
 	"abbr", "acronym", "cite", "code", "dfn", "em", "kbd", "strong", "samp", "var",
 	"a", "bdo", "br", "img", "map", "object", "q", "script", "span", "sub", "sup",
 	"button", "input", "label", "select", "textarea",
+	"iframe",
 }
 
 // IsInlineElement can be used to check wether a node name (goquery.Nodename) is
