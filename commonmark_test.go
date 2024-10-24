@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	md "github.com/JohannesKaufmann/html-to-markdown"
+	md "github.com/tomkosm/html-to-markdown"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/sebdah/goldie/v2"
 	"github.com/yuin/goldmark"

@@ -3,7 +3,7 @@ package plugin
 import (
 	"strings"
 
-	md "github.com/JohannesKaufmann/html-to-markdown"
+	md "github.com/tomkosm/html-to-markdown"
 	"github.com/PuerkitoBio/goquery"
 )
 
