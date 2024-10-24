@@ -17,7 +17,10 @@ import (
 
 var multipleSpacesR = regexp.MustCompile(`  +`)
 
-var commonmark = []Rule{
+func (c *Converter) InitializeCommonMarkRules() []Rule {
+	var multipleSpacesR = regexp.MustCompile(`  +`)
+
+	return []Rule{
 	{
 		Filter: []string{"ul", "ol"},
 		Replacement: func(content string, selec *goquery.Selection, opt *Options) *string {
@@ -427,4 +430,5 @@ var commonmark = []Rule{
 			return String(fmt.Sprintf("[iframe](%s)", absoluteURL))
 		},
 	},
+}
 }

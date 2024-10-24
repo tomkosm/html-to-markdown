@@ -136,7 +136,8 @@ func NewConverter(domain string, enableCommonmark bool, options *Options) *Conve
 	})
 
 	if enableCommonmark {
-		conv.AddRules(commonmark...)
+		commonRules := conv.InitializeCommonMarkRules()
+		conv.AddRules(commonRules...)
 		conv.remove["script"] = struct{}{}
 		conv.remove["style"] = struct{}{}
 		conv.remove["textarea"] = struct{}{}
