@@ -422,7 +422,7 @@ func (c *Converter) InitializeCommonMarkRules() []Rule {
 				}
 
 				// Create a new converter to handle the embedded content
-				innerConv := NewConverter("", true, opt)
+				innerConv := NewConverter(opt.domain, true, opt)
 				return String(innerConv.Convert(doc.Selection))
 			}
 
