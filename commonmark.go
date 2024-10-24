@@ -9,6 +9,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
+	"net/url"
+
 	"github.com/JohannesKaufmann/html-to-markdown/escape"
 	"github.com/PuerkitoBio/goquery"
 )
