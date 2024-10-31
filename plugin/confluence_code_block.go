@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	md "github.com/tom/html-to-markdown"
+	md "github.com/tomkosm/html-to-markdown"
 	"github.com/PuerkitoBio/goquery"
 )
 
