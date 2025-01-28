@@ -399,7 +399,7 @@ func (c *Converter) InitializeCommonMarkRules() []Rule {
 		Filter: []string{"iframe"},
 		Replacement: func(content string, selec *goquery.Selection, opt *Options) *string {
 			src, exists := selec.Attr("src")
-			fmt.Println(src)
+			// fmt.Println(src)
 			if !exists {
 				return String("")
 			}
